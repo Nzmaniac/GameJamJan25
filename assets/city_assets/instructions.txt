@@ -1,0 +1,10 @@
+Hello there
+
+for all animations the 1st, 3rd and 5th are idle sprites, while the rest are walking in respective direction. 
+First 2 rows are walking downwards, 3rd and 4th are walking top, 5th and 6th are walking side. 
+
+For the car, each is with a certain 32x32 based grid. For example the horizontal cars are 96x96 px, the corner is 
+128x96 px and the top/down facing cars are 64x96 px. 
+
+Best of luck and thanks for buying this pack! 
+If you have any questions or spot any visual bugs or issues please let me know. 
