@@ -2,7 +2,7 @@
 .godot/
 
 # Godot-specific files
-.import/
+*.import/
 .export/
 
 # System-specific files

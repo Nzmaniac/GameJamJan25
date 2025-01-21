@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg28tc8hcdqb"]
+
+[ext_resource type="Texture2D" uid="uid://m3t4bl7i0j4r" path="res://assets/character_assets/happy_face_sprites.png" id="1_3ra2s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwvfc"]
+atlas = ExtResource("1_3ra2s")
+region = Rect2(13, 0, 50, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nulvp"]
+atlas = ExtResource("1_3ra2s")
+region = Rect2(77, 0, 50, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqyjd"]
+atlas = ExtResource("1_3ra2s")
+region = Rect2(13, 65, 50, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o865"]
+atlas = ExtResource("1_3ra2s")
+region = Rect2(77, 65, 50, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohvna"]
+atlas = ExtResource("1_3ra2s")
+region = Rect2(13, 130, 50, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ax53i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwvfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nulvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqyjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o865")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohvna")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="happy-face" type="Area2D"]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, -38)
+sprite_frames = SubResource("SpriteFrames_ax53i")
