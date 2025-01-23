@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 config/name="GameJamJan25"
+run/main_scene="res://scenes/world_manager.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
 
 [rendering]
 
