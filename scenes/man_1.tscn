@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://qiqrj2y4p6by"]
 
 [ext_resource type="Script" path="res://scripts/man_1.gd" id="1_0bsno"]
-[ext_resource type="Texture2D" uid="uid://ce3h5seiea5ar" path="res://assets/character_assets/man-1.png" id="2_uvqv2"]
+[ext_resource type="Texture2D" uid="uid://doi700evsshuu" path="res://assets/character_assets/man-1.png" id="2_uvqv2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dk8o"]
 atlas = ExtResource("2_uvqv2")
@@ -285,13 +285,14 @@ animations = [{
 radius = 14.0
 height = 44.0
 
-[node name="man-1" type="Area2D"]
+[node name="man-1" type="CharacterBody2D"]
 script = ExtResource("1_0bsno")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7vtg2")
 animation = &"idle-profile"
+speed_scale = 0.7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_085nf")

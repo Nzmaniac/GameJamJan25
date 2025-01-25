@@ -1,14 +1,35 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkcgmvbv7ktxq"]
 
-[ext_resource type="Script" path="res://scripts/world_manager.gd" id="1_cw7t4"]
-[ext_resource type="Script" path="res://scripts/chunk_visualizer.gd" id="1_fny3e"]
+[ext_resource type="PackedScene" uid="uid://cpr0sx67bg7lp" path="res://scenes/main_map_scene/main_map.tscn" id="2_euv4d"]
+[ext_resource type="PackedScene" uid="uid://qiqrj2y4p6by" path="res://scenes/man_1.tscn" id="2_rs8mu"]
 
-[node name="WorldManager" type="Node2D"]
-script = ExtResource("1_cw7t4")
-metadata/_edit_horizontal_guides_ = [1536.0, 1028.0, 511.0, 2.0]
-metadata/_edit_vertical_guides_ = [1543.0, 1026.0, 513.0, 0.0]
+[node name="world_manager" type="Node2D"]
 
-[node name="ChunkVisualizer" type="Node2D" parent="."]
-script = ExtResource("1_fny3e")
+[node name="Map" type="Node2D" parent="."]
 
-[node name="Chunks" type="Node2D" parent="."]
+[node name="Main" parent="Map" instance=ExtResource("2_euv4d")]
+
+[node name="RoadandPaths" parent="Map/Main/Map" index="0"]
+collision_visibility_mode = 1
+
+[node name="Player" type="Node2D" parent="."]
+z_index = 10
+y_sort_enabled = true
+
+[node name="man-1" parent="Player" instance=ExtResource("2_rs8mu")]
+y_sort_enabled = true
+position = Vector2(251, 350)
+
+[node name="AnimatedSprite2D" parent="Player/man-1" index="0"]
+animation = &"idle-front"
+
+[node name="Camera2D" type="Camera2D" parent="Player/man-1"]
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+position_smoothing_enabled = true
+editor_draw_limits = true
+
+[editable path="Map/Main"]
+[editable path="Player/man-1"]
