@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cq1dajcklydys"]
 
-[ext_resource type="Texture2D" uid="uid://mg1vs18bgg1d" path="res://assets/city_assets/park and street tiles.png" id="1_vic0p"]
+[ext_resource type="Texture2D" uid="uid://ct5qeb3dh4soq" path="res://assets/city_assets/park and street tiles.png" id="1_vic0p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53mwn"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
