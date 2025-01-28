@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b21ttbdbcw071"]
+
+[ext_resource type="Texture2D" uid="uid://bs5wvfwytavhm" path="res://assets/city_assets/cabinet.png" id="1_0kgxk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj866"]
+atlas = ExtResource("1_0kgxk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdlw6"]
+size = Vector2(20, 9)
+
+[node name="Cabinet" type="StaticBody2D"]
+z_index = 5
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+y_sort_enabled = true
+scale = Vector2(1.2, 1.2)
+texture = SubResource("AtlasTexture_nj866")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 5
+y_sort_enabled = true
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_vdlw6")
