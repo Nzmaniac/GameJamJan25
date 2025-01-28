@@ -1,0 +1,129 @@
+[gd_scene load_steps=13 format=3 uid="uid://boiwec8dje6c1"]
+
+[ext_resource type="Texture2D" uid="uid://hwcwwgxrabnj" path="res://assets/character_assets/van_final.png" id="1_ea6k4"]
+[ext_resource type="Script" path="res://scenes/van.gd" id="1_tfth8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77a1t"]
+size = Vector2(92, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g24l0"]
+atlas = ExtResource("1_ea6k4")
+region = Rect2(440, 0, 110, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qys1x"]
+atlas = ExtResource("1_ea6k4")
+region = Rect2(660, 0, 110, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35xvy"]
+atlas = ExtResource("1_ea6k4")
+region = Rect2(550, 0, 110, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ul7g"]
+atlas = ExtResource("1_ea6k4")
+region = Rect2(770, 0, 110, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka7j4"]
+atlas = ExtResource("1_ea6k4")
+region = Rect2(220, 0, 110, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uki0o"]
+atlas = ExtResource("1_ea6k4")
+region = Rect2(330, 0, 110, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hedt"]
+atlas = ExtResource("1_ea6k4")
+region = Rect2(110, 0, 110, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn1kd"]
+atlas = ExtResource("1_ea6k4")
+region = Rect2(0, 0, 110, 95)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7spg5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g24l0")
+}],
+"loop": true,
+"name": &"east",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qys1x")
+}],
+"loop": true,
+"name": &"north",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35xvy")
+}],
+"loop": true,
+"name": &"north_east",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ul7g")
+}],
+"loop": true,
+"name": &"north_west",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka7j4")
+}],
+"loop": true,
+"name": &"south",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uki0o")
+}],
+"loop": true,
+"name": &"south_east",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hedt")
+}],
+"loop": true,
+"name": &"south_west",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn1kd")
+}],
+"loop": true,
+"name": &"west",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_tfth8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 19)
+shape = SubResource("RectangleShape2D_77a1t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7spg5")
+animation = &"east"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+position_smoothing_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+editor_draw_limits = true

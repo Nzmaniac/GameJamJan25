@@ -296,3 +296,12 @@ speed_scale = 0.7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_085nf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+position_smoothing_enabled = true
+editor_draw_limits = true
