@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 200
 var map_bounds = Rect2(Vector2(0, 0), Vector2(1920, 1080))  # Define the map boundaries
-
+#var modal_scene = preload("res://scenes/cabinet_mini_game.tscn")
 var is_controlling = true  # Player starts with control
 
 @onready var cabinet = null
@@ -34,7 +34,9 @@ func get_input():
 	else:
 		animated_sprite.play("idle-front")  # Replace with your idle animation name
 func _physics_process(delta):
-	
+	if ModalManager.is_modal_active:
+		return
+		
 	if is_controlling:
 		collision_shape.disabled = false
 		get_input()
@@ -46,6 +48,7 @@ func _physics_process(delta):
 			enter_van()
 		elif cabinet and Input.is_action_just_pressed("interact") and is_near_cabinet():
 			print("minigame popup!")
+			ModalManager.open_modal()
 
 func is_near_van() -> bool:
 	# Check if the player is close to the van (adjust distance as needed)
@@ -61,6 +64,3 @@ func enter_van():
 
 func is_near_cabinet() -> bool:
 	return global_position.distance_to(cabinet.global_position) < 50
-
-func get_camera():
-	return camera  # Helper function to get the player's camera
