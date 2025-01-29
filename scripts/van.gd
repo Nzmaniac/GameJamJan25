@@ -75,8 +75,6 @@ func take_control(passed_player):
 	is_controlling = true  # Enable van control
 	player = passed_player  # Store the player reference
 	camera.make_current()
-	print("Van Camera is Current:", camera.is_current())
-	print("Player Camera is Current:", player.get_camera().is_current()) # Activate the van's camera
 	
 	
 func exit_van():

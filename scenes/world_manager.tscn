@@ -34,7 +34,6 @@ y_sort_enabled = true
 position = Vector2(251, 350)
 
 [node name="Main" parent="Node2D" instance=ExtResource("2_euv4d")]
-visible = false
 z_index = 5
 position = Vector2(-367, -456)
 
@@ -51,7 +50,7 @@ position = Vector2(-15, 381)
 position = Vector2(698, 385)
 
 [node name="ModalContainer" type="Control" parent="."]
-z_index = 100
+z_index = 36
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
