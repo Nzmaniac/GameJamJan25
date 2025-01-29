@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 200
 var map_bounds = Rect2(Vector2(0, 0), Vector2(1920, 1080))  # Define the map boundaries
-
+var modal_scene = preload("res://scenes/cabinet_mini_game.tscn")
 var is_controlling = true  # Player starts with control
 
 @onready var cabinet = null
@@ -46,6 +46,7 @@ func _physics_process(delta):
 			enter_van()
 		elif cabinet and Input.is_action_just_pressed("interact") and is_near_cabinet():
 			print("minigame popup!")
+			open_modal()
 
 func is_near_van() -> bool:
 	# Check if the player is close to the van (adjust distance as needed)
@@ -64,3 +65,29 @@ func is_near_cabinet() -> bool:
 
 func get_camera():
 	return camera  # Helper function to get the player's camera
+
+func open_modal():
+	# Instance the modal
+	var modal_instance = modal_scene.instantiate()
+	if modal_instance is Control:
+		var viewport_size = get_viewport_rect().size  # Get the size of the viewport
+		var modal_size = modal_instance.size  # Get the size of the modal
+		print("viewport: ", viewport_size)
+		print("modal: ", modal_size)
+		print("position: ", modal_instance.position)
+		#modal_instance.position = (viewport_size - modal_size) / 2  # Center the modal
+		modal_instance.z_index = 100
+
+	
+	# Add it to the current scene
+	var ui_layer = get_node("../../../ModalContainer")
+	ui_layer.add_child(modal_instance)  # Add as a child of the root viewport
+	
+	# Optionally, pause the game while the modal is open
+	get_tree().paused = true  # Pause the game
+	modal_instance.process_mode = Node.PROCESS_MODE_ALWAYS  # Ensure modal still processes while paused
+	#print(modal_instance.get_parent())
+	#print(modal_instance.global_position)
+	#print(modal_instance.visible) 
+	print("Modal opened!")
+	
