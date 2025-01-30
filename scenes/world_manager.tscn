@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkcgmvbv7ktxq"]
+[gd_scene load_steps=6 format=3 uid="uid://bkcgmvbv7ktxq"]
 
 [ext_resource type="PackedScene" uid="uid://cpr0sx67bg7lp" path="res://scenes/main_map_scene/main_map.tscn" id="2_euv4d"]
 [ext_resource type="PackedScene" uid="uid://qiqrj2y4p6by" path="res://scenes/man_1.tscn" id="2_rs8mu"]
 [ext_resource type="PackedScene" uid="uid://boiwec8dje6c1" path="res://scenes/van.tscn" id="3_1k16d"]
 [ext_resource type="PackedScene" uid="uid://b21ttbdbcw071" path="res://scenes/cabinet.tscn" id="4_b18q8"]
+[ext_resource type="PackedScene" uid="uid://bpab1aj6y4y83" path="res://scenes/clipboard_ui.tscn" id="5_0eaew"]
 
 [node name="world_manager" type="Node2D"]
 y_sort_enabled = true
@@ -21,7 +22,7 @@ position = Vector2(-367, -456)
 [node name="Van" parent="Node2D/Player_van" instance=ExtResource("3_1k16d")]
 z_index = 5
 y_sort_enabled = true
-position = Vector2(664, 386)
+position = Vector2(1259, 322)
 
 [node name="Player" type="Node2D" parent="Node2D"]
 z_index = 5
@@ -31,7 +32,7 @@ position = Vector2(-367, -456)
 [node name="man-1" parent="Node2D/Player" instance=ExtResource("2_rs8mu")]
 z_index = 5
 y_sort_enabled = true
-position = Vector2(251, 350)
+position = Vector2(1623, 231)
 
 [node name="Main" parent="Node2D" instance=ExtResource("2_euv4d")]
 z_index = 5
@@ -59,3 +60,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Clipboard" type="CanvasLayer" parent="."]
+
+[node name="ClipboardUI" parent="Clipboard" instance=ExtResource("5_0eaew")]
