@@ -46,7 +46,7 @@ func start_drag(port):
 	current_line = Line2D.new()
 	current_line.z_index = 30
 	current_line.width = 3
-	current_line.default_color = Color(1, 1, )  # Blue line
+	current_line.default_color = Color(1, 1, 0)  # Blue line
 	modal_instance.add_child(current_line)
 
 	print("Started drag at:", drag_start_position)

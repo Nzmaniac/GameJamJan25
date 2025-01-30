@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 200
+var speed = 300
 var is_controlling = false  # Van starts without control
 var map_bounds = Rect2(Vector2(0, 0), Vector2(1920, 1080))
 var action_cooldown = false  # Prevents immediate re-triggering of input
