@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv13g7ni88ypw"]
+
+[ext_resource type="Script" path="res://scenes/splash_screen.gd" id="1_ysjmv"]
+
+[node name="splash_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ysjmv")
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 1
+offset_left = 100.0
+offset_top = 20.0
+offset_right = 700.0
+offset_bottom = 370.0
+bbcode_enabled = true
+text = "[b][font_size=40]FIBRE CITY [/font_size][/b]
+It's just another day in fibre town, life moves at light speed! (as fibre does)
+But… something is amiss… phones are ringing off the hook! What the heck is going on? Johnny can’t connect to steam! AND JEFF ISN’T ABLE TO MINE $HAWK COINS!
+Our hero awakes from his slumber… armed with the power of plugging things in (mvp), he must defeat the chaos that plagues this once peaceful city!
+If he does not… well… KPI’s won’t look great AND HE MIGHT BE CALLED INTO A MANAGERS MEETING!!!!
+
+[b]Instructions[/b]
+Check your clipboard for your daily tasks, the quicker you finish, the better you look!
+Navigate the city and fix the issues with the fibre cabinets, HINT cars are faster than legs… and don’t forget to return home once you are done for the day.
+[b]W,A,S,D to move, C to interact, Tab to toggle the clipboard[/b]"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 5.0
+anchor_top = 5.0
+anchor_right = 5.0
+anchor_bottom = 5.0
+offset_left = 4.0
+offset_top = 283.0
+offset_right = 404.0
+offset_bottom = 383.0
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"

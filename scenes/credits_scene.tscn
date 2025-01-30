@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://baips3crtwybi"]
+
+[ext_resource type="Script" path="res://scenes/credits_scene.gd" id="1_56yd8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jwm16"]
+
+[node name="CreditsScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_56yd8")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 57.0
+text = "Back"
+
+[node name="CreditsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+text = "Credits:
+Developers:
+NZ_maniac, code_artisan
+Extra Game Asset Artist:
+tom.foolery
+Creative Director:
+Sharky
+Playtest
+xmandellax
+
+Texture Pack:
+Cozy city assets by grigoreen - itch.io
+https://grigoreen.itch.io/cozycity"
+label_settings = SubResource("LabelSettings_jwm16")
+horizontal_alignment = 1
+vertical_alignment = 1
