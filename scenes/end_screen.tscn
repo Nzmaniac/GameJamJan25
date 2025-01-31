@@ -56,6 +56,7 @@ text = "4
 label_settings = ExtResource("3_03kis")
 
 [node name="TimeRemaining" type="Label" parent="."]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 163.0
 offset_right = 268.0
@@ -64,6 +65,7 @@ text = "Time Remaining:"
 label_settings = ExtResource("3_03kis")
 
 [node name="TimeRemainAmt" type="Label" parent="."]
+layout_mode = 0
 offset_left = 319.0
 offset_top = 165.0
 offset_right = 359.0
@@ -72,6 +74,7 @@ text = "00:00"
 label_settings = ExtResource("3_03kis")
 
 [node name="CSAT" type="Label" parent="."]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 227.0
 offset_right = 150.0
@@ -80,6 +83,7 @@ text = "Customer Satisfaction:"
 label_settings = ExtResource("3_03kis")
 
 [node name="CSATAmt" type="Label" parent="."]
+layout_mode = 0
 offset_left = 348.0
 offset_top = 226.0
 offset_right = 411.0
@@ -88,6 +92,7 @@ text = "50pts"
 label_settings = ExtResource("3_03kis")
 
 [node name="Status" type="Label" parent="."]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 290.0
 offset_right = 150.0
@@ -96,6 +101,7 @@ text = "Status:"
 label_settings = ExtResource("3_03kis")
 
 [node name="AchievedStatus" type="Label" parent="."]
+layout_mode = 0
 offset_left = 210.0
 offset_top = 291.0
 offset_right = 427.0

@@ -32,7 +32,7 @@ position = Vector2(1259, 322)
 [node name="Player" type="Node2D" parent="Y_sort"]
 z_index = 5
 y_sort_enabled = true
-position = Vector2(-366, -447)
+position = Vector2(-442, -478)
 
 [node name="man-1" parent="Y_sort/Player" instance=ExtResource("2_rs8mu")]
 z_index = 5
