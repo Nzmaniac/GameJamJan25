@@ -1,9 +1,10 @@
 extends Control
 
 var tasks = {
-	"Fix cable A": false,
-	"Replace broken panel": false,
-	"Check signal strength": false
+	"Cabinet 1 outside Yummart": false,
+	"Cabinet 2 opp Barber Shop": false,
+	"Cabinet 3 SE Housing block": false,
+	"Cabinet 4 SW Housing block": false
 }
 
 var is_visible = true  # Start visible
@@ -70,3 +71,9 @@ func finish_random_task():
 			update_tasks()  # Refresh UI
 			return
 	print("All tasks are already completed!")
+
+func are_all_tasks_completed() -> bool:
+	for task_status in tasks.values():
+		if not task_status:  # If any task is False (incomplete)
+			return false  
+	return true  # ✅ All tasks are complete
