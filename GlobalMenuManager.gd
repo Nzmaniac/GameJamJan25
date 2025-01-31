@@ -1,6 +1,7 @@
 extends Node
 
 var exit_dialog = null
+var time_left = 300
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  

@@ -17,6 +17,8 @@ func _on_body_entered(body):
 			print("❌ Some tasks are incomplete! You cannot go home yet.")
 
 func allow_player_entry(player):
+	var timer = get_node("../TimerNode")
+	timer.stop()
 	print("🚪 Player is entering home...")
 	player.position = Vector2(100, 100)  # Example: Move player inside
 	call_deferred("_change_to_end_scene")

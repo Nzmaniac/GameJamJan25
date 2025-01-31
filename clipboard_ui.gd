@@ -1,5 +1,7 @@
 extends Control
 
+@onready var timer_label = $Timer
+
 var tasks = {
 	"Cabinet 1 outside Yummart": false,
 	"Cabinet 2 opp Barber Shop": false,
@@ -12,14 +14,14 @@ var is_visible = true  # Start visible
 func _ready():
 	update_tasks()  # Populate tasks
 	set_process_input(true)  # Ensure input is processed
+	
 
 func _input(event):
 	if event.is_action_pressed("ui_focus_next"):  # "Tab" is mapped to `ui_focus_next`
 		toggle_clipboard()
 
-	if event.is_action_pressed("debug_complete_task"):  
-		print("F pressed! Completing a task...")
-		finish_random_task()
+
+
 
 
 func toggle_clipboard():
@@ -77,3 +79,11 @@ func are_all_tasks_completed() -> bool:
 		if not task_status:  # If any task is False (incomplete)
 			return false  
 	return true  # ✅ All tasks are complete
+
+
+func update_timer_display(time_left):
+	print("Time Left:", GlobalMenuManager.time_left, " | Current Color:", timer_label.get_theme_color("font_color"))
+	timer_label.add_theme_color_override("font_color", Color(1, 0, 0))  # Red
+	var minutes = time_left / 60
+	var seconds = time_left % 60
+	timer_label.text = "%02d:%02d" % [minutes, seconds]  # ⏳ Format as MM:SS

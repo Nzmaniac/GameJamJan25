@@ -42,7 +42,7 @@ func get_input():
 func _physics_process(delta):
 	if ModalManager.is_modal_active:
 		return
-		
+
 	if is_controlling:
 		camera.make_current() 
 		collision_shape.disabled = false

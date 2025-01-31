@@ -340,6 +340,7 @@ offset_bottom = 47.0
 
 [node name="PatchPanelMiddle" type="TextureRect" parent="."]
 z_index = 16
+layout_mode = 0
 offset_left = 97.0
 offset_top = 131.0
 offset_right = 287.0
