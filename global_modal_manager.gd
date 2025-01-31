@@ -6,47 +6,60 @@ var drag_start_position = Vector2.ZERO
 var drag_start_port = null
 var current_line = null  # Reference to the Line2D for drawing
 var is_modal_active = false
+var cabinet = null
 
-func open_modal():
-	# If a modal is already open, prevent duplicates
+func open_modal(cabinet_obj):
+
 	if modal_instance:
 		return
+	cabinet = cabinet_obj
+	if cabinet.name == "Cabinet":
+		modal_instance = preload("res://scenes/cabinet_mini_game.tscn").instantiate()
+	elif cabinet.name == "Cabinet2":
+		modal_instance = preload("res://scenes/cabinet2_mini_game.tscn").instantiate()
+	elif cabinet.name == "Cabinet3":
+		modal_instance = preload("res://scenes/cabinet3_mini_game.tscn").instantiate()
+	elif cabinet.name == "Cabinet4":
+		modal_instance = preload("res://scenes/cabinet4_mini_game.tscn").instantiate()
 
-	modal_instance = preload("res://scenes/cabinet_mini_game.tscn").instantiate()
-	
-	# Add the modal to the UI layer (not root, to avoid input issues)
 	print(get_tree().root)
 	var ui_layer = get_tree().root.get_node("world_manager/ModalContainer")
 	ui_layer.add_child(modal_instance)
 
-	# Ensure modal processes while paused
 	modal_instance.process_mode = Node.PROCESS_MODE_ALWAYS
 
-	# Center the modal dynamically
-	await get_tree().process_frame  # Ensure size is available
-	var viewport_size = get_viewport_rect().size
-	modal_instance.position = (viewport_size - modal_instance.get_node("Background").size) / 2
+	# Center the modal dynamically above Player
+	var player = get_node("../world_manager/Y_sort/Player")
+	if player:
+		var player_pos = player.global_position
+		var modal_size = modal_instance.get_node("Background").size
+		print("position ", cabinet.global_position)
+		modal_instance.global_position = cabinet.global_position + Vector2(-modal_size.x / 2, -modal_size.y -5)  
+	else:
+		print("Player not found!")
+
+	modal_instance.show()
 	is_modal_active = true
 	print("Modal opened at:", modal_instance.position)
 
 
 func start_drag(port):
 	if not modal_instance:
-		return  # Do nothing if modal is not open
+		return  
 
 	is_dragging = true
 	drag_start_port = port
 
-	# Get the center of the port (assuming it's a Control node)
+	# Get the center of the port
 	var port_size = port.get_rect().size
 	var modal_global_position = modal_instance.global_position
 	drag_start_position = port.global_position + (port_size / 2) - modal_global_position
 
-	# Create a new line for this connection
+	# Create a new line for patch lead
 	current_line = Line2D.new()
 	current_line.z_index = 30
 	current_line.width = 3
-	current_line.default_color = Color(1, 1, 0)  # Blue line
+	current_line.default_color = Color(1, 1, 0)
 	modal_instance.add_child(current_line)
 
 	print("Started drag at:", drag_start_position)
@@ -63,10 +76,9 @@ func _input(event):
 
 func finalize_connection(end_port):
 	if not is_dragging or not modal_instance:
-		return  # Nothing to finalize
+		return  
 
 	if drag_start_port == end_port:
-		# Prevent connecting a port to itself
 		print("Cannot connect a port to itself.")
 		modal_instance.cable_container.remove_child(current_line)  # Remove the incomplete cable
 		current_line.queue_free()
@@ -87,6 +99,7 @@ func finalize_connection(end_port):
 		# Check if the connection matches the correct pair
 		if is_correct_connection(drag_start_port.name, end_port.name):
 			print("Correct connection!")
+			mark_off_task(cabinet.name)
 			show_continue_button()
 		# Reset drag state
 		reset_drag()
@@ -102,6 +115,39 @@ func finalize_connection(end_port):
 		# Check if the connection matches the correct pair
 		if is_correct_connection(end_port.name, drag_start_port.name):
 			print("Correct connection!")
+			mark_off_task(cabinet.name)
+			show_continue_button()
+		# Reset drag state
+		reset_drag()
+	elif drag_start_port in modal_instance.patch_panel_mid.get_children() and end_port in modal_instance.patch_panel_bottom.get_children():
+		print("Connected: ",modal_instance.patch_panel_bottom.name," ", drag_start_port.name, " to ", modal_instance.patch_panel_top.name," ",end_port.name)
+
+		# Lock the line to the final position
+		current_line.add_point(end_port.global_position + (end_port.get_rect().size / 2) - modal_global_position)  # Center of the end port
+		
+		# Add connectors to both ends
+		add_connector(drag_start_position)
+		add_connector(end_port.global_position + (end_port.get_rect().size / 2) - modal_global_position)
+		# Check if the connection matches the correct pair
+		if is_correct_connection(end_port.name, drag_start_port.name):
+			print("Correct connection!")
+			mark_off_task(cabinet.name)
+			show_continue_button()
+		# Reset drag state
+		reset_drag()
+	elif drag_start_port in modal_instance.patch_panel_top.get_children() and end_port in modal_instance.patch_panel_mid.get_children():
+		print("Connected: ",modal_instance.patch_panel_top.name," ", drag_start_port.name, " to ", modal_instance.patch_panel_mid.name," ",end_port.name)
+
+		# Lock the line to the final position
+		current_line.add_point(end_port.global_position + (end_port.get_rect().size / 2) - modal_global_position)  # Center of the end port
+		
+		# Add connectors to both ends
+		add_connector(drag_start_position)
+		add_connector(end_port.global_position + (end_port.get_rect().size / 2) - modal_global_position)
+		# Check if the connection matches the correct pair
+		if is_correct_connection( drag_start_port.name, end_port.name):
+			print("Correct connection!")
+			mark_off_task(cabinet.name)
 			show_continue_button()
 		# Reset drag state
 		reset_drag()
@@ -151,3 +197,15 @@ func close_modal():
 		modal_instance.queue_free()
 		modal_instance = null
 		is_modal_active = false 
+
+func mark_off_task(cabinet):
+	var clipboard = get_tree().root.get_node("world_manager/Clipboard/ClipboardUI")
+	if cabinet == "Cabinet":
+		clipboard.complete_task("Cabinet 1 outside Yummart")
+	elif cabinet == "Cabinet2":
+		clipboard.complete_task("Cabinet 2 opp Barber Shop")
+	elif cabinet == "Cabinet3":
+		clipboard.complete_task("Cabinet 3 SW Housing block")
+	elif cabinet == "Cabinet4":
+		clipboard.complete_task("Cabinet 4 SE Housing block")
+		

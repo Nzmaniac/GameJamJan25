@@ -6,6 +6,9 @@ var map_bounds = Rect2(Vector2(0, 0), Vector2(1920, 1080))  # Define the map bou
 var is_controlling = true  # Player starts with control
 
 @onready var cabinet = null
+@onready var cabinet2 = null
+@onready var cabinet3 = null
+@onready var cabinet4 = null
 @onready var van = null  # Reference to the van
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var camera = $Camera2D
@@ -15,6 +18,9 @@ func _ready():
 	# Find the van in the scene (adjust path if needed)
 	van = get_node("../../Player_van/Van")  # Make sure this matches your scene structure
 	cabinet = get_node("../../Cabinet")
+	cabinet2 = get_node("../../Cabinet2")
+	cabinet3 = get_node("../../Cabinet3")
+	cabinet4 = get_node("../../Cabinet4")
 	camera.make_current() # Make sure the player's camera is active at the start
 	
 func get_input():
@@ -36,8 +42,9 @@ func get_input():
 func _physics_process(delta):
 	if ModalManager.is_modal_active:
 		return
-		
+
 	if is_controlling:
+		camera.make_current() 
 		collision_shape.disabled = false
 		get_input()
 		move_and_collide(velocity * delta)
@@ -46,10 +53,16 @@ func _physics_process(delta):
 		global_position.y = clamp(global_position.y, map_bounds.position.y, map_bounds.position.y + map_bounds.size.y)
 		if van and Input.is_action_just_pressed("interact") and is_near_van():
 			enter_van()
-		elif cabinet and Input.is_action_just_pressed("interact") and is_near_cabinet():
-			print("minigame popup!")
-			ModalManager.open_modal()
-
+		elif cabinet and Input.is_action_just_pressed("interact"):
+			if is_near_cabinet(cabinet):
+				ModalManager.open_modal(cabinet)
+			elif is_near_cabinet(cabinet2):
+				ModalManager.open_modal(cabinet2)
+			elif is_near_cabinet(cabinet3):
+				ModalManager.open_modal(cabinet3)
+			elif is_near_cabinet(cabinet4):
+				ModalManager.open_modal(cabinet4)
+	
 func is_near_van() -> bool:
 	# Check if the player is close to the van (adjust distance as needed)
 	print(global_position.distance_to(van.global_position))
@@ -62,5 +75,5 @@ func enter_van():
 	collision_shape.disabled = true
 	van.take_control(self)  # Call van's function to take control
 
-func is_near_cabinet() -> bool:
+func is_near_cabinet(cabinet) -> bool:
 	return global_position.distance_to(cabinet.global_position) < 50

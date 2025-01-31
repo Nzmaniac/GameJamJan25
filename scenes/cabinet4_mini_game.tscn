@@ -1,47 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://da3gjujh6gycd"]
+[gd_scene load_steps=7 format=3 uid="uid://bnu3nftytbg6j"]
 
-[ext_resource type="Script" path="res://scripts/cabinet_mini_game.gd" id="1_pm4gg"]
-[ext_resource type="Texture2D" uid="uid://bw4sve8ej4b38" path="res://assets/cabinet_inner/inside_cab.png" id="2_iwy3s"]
-[ext_resource type="Texture2D" uid="uid://6h3xujoln1qg" path="res://assets/cabinet_inner/patch.png" id="3_tvwly"]
+[ext_resource type="Script" path="res://scenes/cabinet_4_mini_game.gd" id="1_xc6fe"]
+[ext_resource type="Texture2D" uid="uid://bw4sve8ej4b38" path="res://assets/cabinet_inner/inside_cab.png" id="2_cxtla"]
+[ext_resource type="Texture2D" uid="uid://6h3xujoln1qg" path="res://assets/cabinet_inner/patch.png" id="3_hopgq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7hci"]
-atlas = ExtResource("2_iwy3s")
+atlas = ExtResource("2_cxtla")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ubcfc"]
-atlas = ExtResource("3_tvwly")
+atlas = ExtResource("3_hopgq")
 region = Rect2(0, 64, 98, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umw6j"]
-atlas = ExtResource("3_tvwly")
+atlas = ExtResource("3_hopgq")
 region = Rect2(0, 64, 98, 24)
 
-[node name="cabinet_mini_game" type="Control"]
+[node name="cabinet4_mini_game" type="Control"]
 z_index = 16
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -500.0
-offset_bottom = -400.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_pm4gg")
+script = ExtResource("1_xc6fe")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = 15
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 200.0
+offset_right = 40.0
+offset_bottom = 40.0
 texture = SubResource("AtlasTexture_y7hci")
-expand_mode = 1
 
 [node name="PatchPanelTop" type="TextureRect" parent="."]
 z_index = 16
 layout_mode = 0
-offset_left = 57.0
-offset_top = 39.0
-offset_right = 247.0
-offset_bottom = 95.0
+offset_left = 97.0
+offset_top = 63.0
+offset_right = 287.0
+offset_bottom = 119.0
 texture = SubResource("AtlasTexture_ubcfc")
 
 [node name="Port_A1" type="TextureButton" parent="PatchPanelTop"]
@@ -191,10 +188,10 @@ offset_bottom = 47.0
 [node name="PatchPanelBottom" type="TextureRect" parent="."]
 z_index = 16
 layout_mode = 0
-offset_left = 57.0
-offset_top = 113.0
-offset_right = 247.0
-offset_bottom = 168.0
+offset_left = 97.0
+offset_top = 200.0
+offset_right = 287.0
+offset_bottom = 255.0
 texture = SubResource("AtlasTexture_umw6j")
 
 [node name="Port_A1" type="TextureButton" parent="PatchPanelBottom"]
@@ -341,6 +338,159 @@ offset_top = 31.0
 offset_right = 180.0
 offset_bottom = 47.0
 
+[node name="PatchPanelMiddle" type="TextureRect" parent="."]
+z_index = 16
+layout_mode = 0
+offset_left = 97.0
+offset_top = 131.0
+offset_right = 287.0
+offset_bottom = 187.0
+texture = SubResource("AtlasTexture_ubcfc")
+
+[node name="Port_A1" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 26.0
+
+[node name="Port_A2" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 28.0
+offset_top = 10.0
+offset_right = 44.0
+offset_bottom = 26.0
+
+[node name="Port_A3" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 47.0
+offset_top = 10.0
+offset_right = 63.0
+offset_bottom = 26.0
+
+[node name="Port_A4" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 67.0
+offset_top = 10.0
+offset_right = 83.0
+offset_bottom = 26.0
+
+[node name="Port_A5" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 87.0
+offset_top = 10.0
+offset_right = 103.0
+offset_bottom = 26.0
+
+[node name="Port_A6" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 105.0
+offset_top = 10.0
+offset_right = 121.0
+offset_bottom = 26.0
+
+[node name="Port_A7" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 125.0
+offset_top = 10.0
+offset_right = 141.0
+offset_bottom = 26.0
+
+[node name="Port_A8" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 145.0
+offset_top = 10.0
+offset_right = 161.0
+offset_bottom = 26.0
+
+[node name="Port_A9" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 164.0
+offset_top = 10.0
+offset_right = 180.0
+offset_bottom = 26.0
+
+[node name="Port_B1" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 9.0
+offset_top = 31.0
+offset_right = 25.0
+offset_bottom = 47.0
+
+[node name="Port_B2" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 28.0
+offset_top = 31.0
+offset_right = 44.0
+offset_bottom = 47.0
+
+[node name="Port_B3" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 47.0
+offset_top = 31.0
+offset_right = 63.0
+offset_bottom = 47.0
+
+[node name="Port_B4" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 67.0
+offset_top = 31.0
+offset_right = 83.0
+offset_bottom = 47.0
+
+[node name="Port_B5" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 87.0
+offset_top = 31.0
+offset_right = 103.0
+offset_bottom = 47.0
+
+[node name="Port_B6" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 105.0
+offset_top = 31.0
+offset_right = 121.0
+offset_bottom = 47.0
+
+[node name="Port_B7" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 125.0
+offset_top = 31.0
+offset_right = 141.0
+offset_bottom = 47.0
+
+[node name="Port_B8" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 145.0
+offset_top = 31.0
+offset_right = 161.0
+offset_bottom = 47.0
+
+[node name="Port_B9" type="TextureButton" parent="PatchPanelMiddle"]
+z_index = 17
+layout_mode = 0
+offset_left = 164.0
+offset_top = 31.0
+offset_right = 180.0
+offset_bottom = 47.0
+
 [node name="CableContainer" type="Node2D" parent="."]
 z_index = 50
 
@@ -350,20 +500,21 @@ z_index = 19
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 z_index = 17
 layout_mode = 0
-offset_left = 43.0
-offset_top = 11.0
-offset_right = 273.0
-offset_bottom = 34.0
-text = "Connect Top A1 to Bottom B5"
+offset_left = 73.0
+offset_top = 23.0
+offset_right = 303.0
+offset_bottom = 46.0
+text = "Connect Top B2 to Mid A5
+Connect Mid B5 to Bottom A7"
 fit_content = true
 
 [node name="ContinueButton" type="TextureButton" parent="."]
 z_index = 17
 layout_mode = 0
-offset_left = 116.0
-offset_top = 168.0
-offset_right = 196.0
-offset_bottom = 198.0
+offset_left = 155.0
+offset_top = 259.0
+offset_right = 235.0
+offset_bottom = 289.0
 action_mode = 0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ContinueButton"]
