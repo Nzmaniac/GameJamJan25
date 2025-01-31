@@ -3,8 +3,8 @@ extends Control
 var tasks = {
 	"Cabinet 1 outside Yummart": false,
 	"Cabinet 2 opp Barber Shop": false,
-	"Cabinet 3 SE Housing block": false,
-	"Cabinet 4 SW Housing block": false
+	"Cabinet 3 SW Housing block": false,
+	"Cabinet 4 SE Housing block": false
 }
 
 var is_visible = true  # Start visible
@@ -47,7 +47,7 @@ func update_tasks():
 		# ✅ Create a custom strikethrough line
 		var strike_through = ColorRect.new()
 		strike_through.color = Color(0, 1, 0, 0.8)  # Green
-		strike_through.custom_minimum_size = Vector2(180, 3)  # Thin line
+		strike_through.custom_minimum_size = Vector2(220, 3)  # Thin line
 		strike_through.position = Vector2(0, 16 / 2)  # Align over text
 		strike_through.z_index = 10
 		task_container.add_child(task_label)

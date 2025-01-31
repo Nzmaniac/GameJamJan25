@@ -44,7 +44,7 @@ z_index = 5
 position = Vector2(-367, -456)
 
 [node name="Cabinet" parent="Y_sort" instance=ExtResource("4_b18q8")]
-position = Vector2(0, -2)
+position = Vector2(-190, -189)
 
 [node name="Cabinet2" parent="Y_sort" instance=ExtResource("4_b18q8")]
 position = Vector2(600, -1)
